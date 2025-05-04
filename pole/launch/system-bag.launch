@@ -1,0 +1,18 @@
+<launch>
+
+    <!-- roslaunch realsense2_camera rs_d435.launch -->
+    <!-- <include file="$(find realsense2_camera)/launch/rs_aligned_depth_d435_stereo.launch" /> -->
+
+    <!-- rosrun web_video_server web_video_server -->
+    <node pkg="web_video_server" type="web_video_server" name="web_video_server" />
+
+    <!-- roslaunch rosbridge_server rosbridge_websocket.launch -->
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+
+    <!-- roslaunch pole nail.launch -->
+    <include file="$(find pole)/launch/nail.launch" />
+
+    <!-- roslaunch pole slam_stereo.launch -->
+    <include file="$(find pole)/launch/slam_stereo.launch" />
+
+</launch>

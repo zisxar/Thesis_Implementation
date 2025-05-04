@@ -1,0 +1,24 @@
+<!-- ~~~~~~~~~~~~~~~~~~~~ -->
+<!-- red-x green-y blue-z -->
+<!-- ~~~~~~~~~~~~~~~~~~~~ -->
+
+<launch>
+    <!-- <remap from="/camera/infra1/image_rect_raw" to="/camera/left/image_raw"/>
+    <remap from="/camera/infra1/image_rect_raw" to="/camera/right/image_raw"/> -->
+    <!-- <remap> from="/usb_cam/image_raw" to="/camera/image_raw"/> -->
+
+    <!-- Transform that helps on giving the correct values. -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_rs_optical1" args="0 0 0 0.0 0.0 0.0 1.0 map odom " />
+
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_rs" args="0 0 0 0.5 -0.5 0.5 0.5 realsense_optical realsense " /> -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="static_rs" args="0 0 0 0.653 -0.653 0.271 0.271 realsense_optical realsense " />
+
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="static_camera_nail" args="0 -1.5 0 0.0 0.0 0.0 1.0 realsense nail " /> -->
+
+    <node name="slam" pkg="ORB_SLAM3" type="Stereo" output="screen" args="/home/rp-user/dev/ORB_SLAM3/Vocabulary/ORBvoc.txt /home/rp-user/config_files/d435_stereo.yaml false" >
+        <param name="default_localization" type="bool" value="false"/>
+    </node>
+
+    <!-- <node name="slam" pkg="ORB_SLAM3" type="Stereo" output="screen" args="/home/rp-user/dev/ORB_SLAM3/Vocabulary/ORBvoc.txt /home/rp-user/config_files/d435_stereo.yaml false" /> -->
+
+</launch>

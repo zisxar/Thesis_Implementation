@@ -1,0 +1,9 @@
+<launch>
+
+    <!-- roslaunch realsense2_camera rs_aligned_depth_d435_stereo.launch -->
+    <include file="$(find realsense2_camera)/launch/rs_aligned_depth_d435_stereo.launch" />
+
+    <!-- rosrun web_video_server web_video_server -->
+    <node pkg="web_video_server" type="web_video_server" name="web_video_server" />
+
+</launch>

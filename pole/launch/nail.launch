@@ -1,0 +1,5 @@
+<launch>
+    <node name="nail_pub" pkg="pole" type="nail_publisher" output="screen" >
+        <param name="default_length" type="double" value="1.5"/>
+    </node>
+</launch>
